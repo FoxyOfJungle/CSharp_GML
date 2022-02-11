@@ -434,10 +434,3 @@ function script_execute_array(func, array) {
 }
 #endregion
 
-
-#region Additional Info
-/*---------------------------------------------
-Invoke system based on "DoLater" by JuJu Adams.
----------------------------------------------*/
-#endregion
-
