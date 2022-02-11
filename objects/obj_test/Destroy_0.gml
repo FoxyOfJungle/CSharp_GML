@@ -1,0 +1,2 @@
+
+print("Destroyed", id);
