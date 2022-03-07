@@ -42,7 +42,7 @@ switch (CSHARP_TIME_TYPE) {
 // spawn
 #macro __csh __csharp_handler
 if instance_exists(__csh) instance_destroy(__csh);
-room_instance_add(0, 0, 0, __csh);
+room_instance_add(room_first, 0, 0, __csh);
 
 // data
 global.__cs_invoke_method_list = [];
