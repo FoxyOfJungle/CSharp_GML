@@ -1,9 +1,3 @@
-//
-
-
-
-
-
 
 //var test = Mathf.Rad2Deg(sin(0.5));
 //print( test );

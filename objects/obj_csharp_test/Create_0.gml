@@ -1,4 +1,7 @@
 
+randomize();
+alarm[0] = 60;
+
 show_debug_message("---------------");
 
 test_func = function() {
@@ -20,18 +23,19 @@ Invoke(test_func1, ["Okay", "I'm fine", 256], 4 SECONDS);
 
 Debug.LogFormat("I have {0} apples, {1} bananas and one {2}", [10, 5, "cat"]);
 
-repeat(10) {
+
+/*repeat(10) {
 	var _xx = irandom(room_width);
 	var _yy = irandom(room_height);
 	instance_create_depth(_xx, _yy, 0, obj_test);
-}
+}*/
 
 
-dir_test = function() {
+/*dir_test = function() {
 	var dir_test = Mathf.Deg2Rad(-point_direction(room_width/2, room_height/2, mouse_x, mouse_y));
 	print(cos(dir_test), sin(dir_test));
 }
-Invoke(dir_test, [], 0.25 SECONDS, false);
+Invoke(dir_test, [], 0.25 SECONDS, false);*/
 
 
 /*

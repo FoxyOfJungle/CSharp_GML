@@ -7,7 +7,7 @@
 // ----- configs -----
 
 #macro CSHARP_MOD_VERSION "0.0.1"
-#macro CSHARP_MOD_AUTHOR "Foxy Of Jungle"
+#macro CSHARP_MOD_AUTHOR "FoxyOfJungle"
 #macro CSHARP_TIME_TYPE CSHARP_TIME.P_FRAMES
 
 
@@ -40,9 +40,7 @@ switch (CSHARP_TIME_TYPE) {
 
 
 // spawn
-#macro __csh __csharp_handler
-if instance_exists(__csh) instance_destroy(__csh);
-room_instance_add(room_first, 0, 0, __csh);
+room_instance_add(room_first, 0, 0, __csharp_handler);
 
 // data
 global.__cs_invoke_method_list = [];
@@ -53,6 +51,14 @@ global.__cs_invokerealtime_method_list = [];
 
 
 // ----- functions -----
+
+#region Class: Basic Syntax
+
+#macro const self[$
+#macro setc ] ??=
+
+#endregion
+
 
 #region Class: MonoBehaviour
 
@@ -439,7 +445,18 @@ function script_execute_array(func, array) {
 
 #region < Handler >
 
-function __csharp_handler__core() {
+global.__mouse_x_delta = 0;
+global.__mouse_y_delta = 0;
+#macro mouse_x_delta global.__mouse_x_delta
+#macro mouse_y_delta global.__mouse_y_delta
+
+function __csharp_handler__init() {
+	__mouse_x_previous = 0;
+	__mouse_y_previous = 0;
+}
+
+
+function __csharp_handler__step() {
 	
 	#region Class : MonoBehaviour
 	// Invoke = () => ()
@@ -480,7 +497,56 @@ function __csharp_handler__core() {
 	}
 	#endregion
 	
+	#region Class : Input Step
+	global.__mouse_x_delta = mouse_x - __mouse_x_previous;
+	global.__mouse_y_delta = mouse_y - __mouse_y_previous;
+	#endregion
+}
+
+
+function __csharp_handler__endstep() {
+	__mouse_x_previous = mouse_x;
+	__mouse_y_previous = mouse_y;
 }
 
 #endregion
+
+
+/*
+#macro print                          \
+    for (var printValue;; {           \
+      show_debug_message(printValue); \
+      break;                          \
+    }) printValue =
+
+print "hello world";
+*/
+
+/*
+for (var printValue;; {
+    show_debug_message(printValue);
+    break;
+})
+printValue = "hello world";
+*/
+
+/*
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
